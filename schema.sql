@@ -10,3 +10,6 @@ CREATE TABLE animals (
   PRIMARY KEY(id)
 );
 
+ALTER TABLE animals
+ADD COLUMN species varchar(250);
+
