@@ -80,7 +80,7 @@ CREATE TABLE visits (
   animal_id      INT,
   vet_id         INT,
   date_of_visit  DATE,
-  primary key (animal_id, vet_id)
+  primary key (animal_id, vet_id, date_of_visit)
 );
 
 
