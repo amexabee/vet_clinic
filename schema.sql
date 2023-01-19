@@ -58,3 +58,29 @@ ADD CONSTRAINT fk_owners
 FOREIGN KEY (owner_id) 
 REFERENCES owners (id);
 
+
+
+/* schema for the fourth code review */
+
+CREATE TABLE vets (
+  id                 INT GENERATED ALWAYS AS IDENTITY,
+  name               VARCHAR(250),
+  age                INT,
+  date_of_graduation DATE,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE specializations (
+  species_id  INT,
+  vet_id      INT,
+  primary key (species_id, vet_id)
+);
+
+CREATE TABLE visits (
+  animal_id      INT,
+  vet_id         INT,
+  date_of_visit  DATE,
+  primary key (animal_id, vet_id)
+);
+
+
