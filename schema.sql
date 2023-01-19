@@ -1,5 +1,9 @@
 /* Database schema to keep the structure of entire database. */
 
+
+
+/* schema for the first code review */
+
 CREATE TABLE animals (
   id              INT GENERATED ALWAYS AS IDENTITY,
   name            VARCHAR(250),
@@ -10,6 +14,9 @@ CREATE TABLE animals (
   PRIMARY KEY(id)
 );
 
+
+
+/* schema for the second code review */
 ALTER TABLE animals
 ADD COLUMN species varchar(250);
 
@@ -19,6 +26,10 @@ CREATE TABLE owners (
   age             INT,
   PRIMARY KEY(id)
 );
+
+
+
+/* schema for the third code review */
 
 CREATE TABLE species (
   id              INT GENERATED ALWAYS AS IDENTITY,
