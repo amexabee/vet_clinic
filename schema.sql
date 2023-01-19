@@ -17,6 +17,7 @@ CREATE TABLE animals (
 
 
 /* schema for the second code review */
+
 ALTER TABLE animals
 ADD COLUMN species varchar(250);
 
