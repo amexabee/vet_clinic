@@ -20,16 +20,17 @@ CREATE TABLE animals (
 ALTER TABLE animals
 ADD COLUMN species varchar(250);
 
+
+
+
+/* schema for the third code review */
+
 CREATE TABLE owners (
   id              INT GENERATED ALWAYS AS IDENTITY,
   full_name       VARCHAR(250),
   age             INT,
   PRIMARY KEY(id)
 );
-
-
-
-/* schema for the third code review */
 
 CREATE TABLE species (
   id              INT GENERATED ALWAYS AS IDENTITY,
