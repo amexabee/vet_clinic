@@ -101,3 +101,58 @@ GROUP BY animals.name, owners.full_name;
 SELECT COUNT(*) AS number_of_animals, owners.full_name FROM animals
 INNER JOIN owners ON animals.owner_id = owners.id
 GROUP BY owners.full_name;
+
+
+
+
+
+/* Queries for the fourth code review  */
+
+SELECT vets.name AS visitor, animals.name AS animal_name, date_of_visit FROM visits
+INNER JOIN vets ON vets.id = vet_id
+INNER JOIN animals ON animals.id = animal_id
+WHERE vets.name IN ('William Tatcher');
+GROUP BY date_of_visit, vets.name, animals.name;
+
+SELECT vets.name AS visitor, animals.name AS animal_name FROM visits
+INNER JOIN vets ON vets.id = vet_id
+INNER JOIN animals ON animals.id = animal_id
+WHERE vets.name IN ('Stephanie Mendez');
+
+SELECT vets.name AS vet, species.name AS speciality FROM specializations
+INNER JOIN species ON species.id = species_id
+RIGHT JOIN vets ON vets.id = vet_id;
+
+SELECT animals.name AS animal_name, vets.name AS visited, date_of_visit FROM visits
+INNER JOIN vets ON vets.id = vet_id
+INNER JOIN animals ON animals.id = animal_id
+WHERE vets.name IN ('Stephanie Mendez') AND date_of_visit >= '2020-04-01' AND date_of_visit <= '2020-08-30';
+
+SELECT COUNT(*) AS number_of_visits, animals.name AS animal_name FROM visits
+INNER JOIN animals ON animals.id = animal_id
+GROUP BY animals.name;
+
+SELECT vets.name AS visitor, animals.name AS animal_name, date_of_visit FROM visits
+INNER JOIN vets ON vets.id = vet_id
+INNER JOIN animals ON animals.id = animal_id
+WHERE vets.name IN ('Maisy Smith')
+GROUP BY date_of_visit, vets.name, animals.name;
+
+SELECT DISTINCT a.name AS animal_name, a.date_of_birth AS animal_dob, escape_attempts, neutered, weight_kg, 
+s.name AS species_name, v.name AS visitor, v.age, v.date_of_graduation, date_of_visit FROM visits
+INNER JOIN vets v ON v.id = visits.vet_id
+INNER JOIN animals a ON a.id = animal_id
+INNER JOIN species s ON s.id = species_id
+INNER JOIN specializations ON specializations.species_id = s.id
+WHERE date_of_visit >= '2021-05-04';
+
+SELECT COUNT(*) FROM visits
+WHERE vet_id NOT IN (SELECT vet_id FROM specializations
+WHERE species_id = (SELECT species_id FROM animals
+WHERE id = visits.animal_id));
+
+SELECT vets.name AS visitor, date_of_visit, animals.name AS animal_name, species.name AS species_name FROM visits
+INNER JOIN vets ON vets.id = visits.vet_id
+INNER JOIN animals ON animals.id = animal_id
+INNER JOIN species ON species.id = species_id
+WHERE vets.name IN ('Maisy Smith');
