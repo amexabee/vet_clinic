@@ -111,7 +111,7 @@ GROUP BY owners.full_name;
 SELECT vets.name AS visitor, animals.name AS animal_name, date_of_visit FROM visits
 INNER JOIN vets ON vets.id = vet_id
 INNER JOIN animals ON animals.id = animal_id
-WHERE vets.name IN ('William Tatcher');
+WHERE vets.name IN ('William Tatcher')
 GROUP BY date_of_visit, vets.name, animals.name;
 
 SELECT vets.name AS visitor, animals.name AS animal_name FROM visits
