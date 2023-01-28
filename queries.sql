@@ -156,3 +156,12 @@ INNER JOIN vets ON vets.id = visits.vet_id
 INNER JOIN animals ON animals.id = animal_id
 INNER JOIN species ON species.id = species_id
 WHERE vets.name IN ('Maisy Smith');
+
+
+
+
+
+
+/*  Week 2 Pair Programming  */
+
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits WHERE animal_id = 4;
