@@ -84,3 +84,27 @@ CREATE TABLE visits (
 );
 
 
+
+
+
+/*  Week 2 Pair Programming  */
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+ALTER TABLE visits DROP CONSTRAINT visits_pkey;
+
+ALTER TABLE visits ADD FOREIGN KEY (animal_id) REFERENCES animals (id);
+
+ALTER TABLE visits ADD FOREIGN KEY (vet_id) REFERENCES vets (id);
+
+CREATE INDEX animal_id_asc ON visits(animal_id ASC);
+
+CREATE INDEX vet_id_asc ON visits(vet_id ASC);
+
+CREATE INDEX email_asc ON owners(email ASC);
+
+ALTER TABLE specializations DROP CONSTRAINT specializations_pkey;
+
+ALTER TABLE specializations ADD FOREIGN KEY (species_id) REFERENCES species(id);
+
+ALTER TABLE specializations ADD FOREIGN KEY (vet_id) REFERENCES vets(id);
