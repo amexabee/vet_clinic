@@ -102,3 +102,9 @@ CREATE INDEX animal_id_asc ON visits(animal_id ASC);
 CREATE INDEX vet_id_asc ON visits(vet_id ASC);
 
 CREATE INDEX email_asc ON owners(email ASC);
+
+ALTER TABLE specializations DROP CONSTRAINT specializations_pkey;
+
+ALTER TABLE specializations ADD FOREIGN KEY (species_id) REFERENCES species(id);
+
+ALTER TABLE specializations ADD FOREIGN KEY (vet_id) REFERENCES vets(id);
